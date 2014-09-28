@@ -18,18 +18,29 @@
       "persistent": false,
       "scripts": ["js/background.js"]
    },
+   "options_page": "options.html",
    "permissions": [
-      "tabs"
+      "tabs",
+      "storage"
    ],
    "content_scripts": [ 
       {
-         "js": ["js/jquery.min.js", "js/58.js"],
-         "matches": ["*://*.58.com/*"]
-      } 
-      // {
-      //    "js": ["js/ganji.js"],
-      //    "matches": ["*://*.ganji.com/*"]
-      // }
+         "matches": ["*://*.58.com/*"],
+         "js": [
+            "lib/jquery/dist/jquery.min.js",
+            "js/58.js"
+         ]         
+      }, 
+      {
+         "matches": ["*://*.ganji.com/*"],
+         "js": [
+            "lib/jquery/dist/jquery.min.js",
+            "js/ganji.js"
+         ]         
+      }
+   ],
+   "web_accessible_resources": [
+      "lib/jquery/dist/jquery.min.map"
    ],
    "update_url": "http://clients2.google.com/service/update2/crx"
 }

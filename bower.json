@@ -1,0 +1,28 @@
+{
+  "name": "FakeJobGoAway",
+  "version": "0.1",
+  "homepage": "https://github.com/zhchuan7/FakeJobGoAway",
+  "authors": [
+    "fishead <zhchuan7@gmail.com>"
+  ],
+  "description": "filter bad job infomations",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "job",
+    "filter"
+  ],
+  "license": "GPL v3",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1"
+  }
+}
