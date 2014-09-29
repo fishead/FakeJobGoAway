@@ -1,3 +1,5 @@
+# chrome.storage.sync.clear() # for test
+
 defaultConfig = {
     'com58': [
         '重庆达内软件有限公司南坪分公司',
@@ -31,14 +33,21 @@ removePublisher = (siteCode, publisher) ->
             savePublishers config, ->
                 console.log "remove publisher: #{ publisher }"
 
-# chrome.storage.sync.clear() # for test
+togglePublisher = (siteCode, publisher) ->
+    chrome.storage.sync.get siteCode, (config) ->
+        index = config[siteCode].indexOf publisher
+        if index < 0
+            addPublisher siteCode, publisher, ->
+        else
+            removePublisher siteCode, publisher, ->
 
+# import default config when extension installed
 chrome.runtime.onInstalled.addListener (details) ->
     if details.reason is 'install'
         chrome.storage.sync.set defaultConfig, ->
-            console.log 'default comfig imported'
+            console.log 'default config imported'
 
-
+# handle message from content script
 chrome.runtime.onMessage.addListener (message, sender, sendRespons) ->
     if message.do is 'get'
         chrome.storage.sync.get message.siteCode, (config) ->
@@ -50,3 +59,6 @@ chrome.runtime.onMessage.addListener (message, sender, sendRespons) ->
 
     else if message.do is 'remove'
         removePublisher message.siteCode, message.publisher
+
+    else if message.do is 'toggle'
+        togglePublisher message.siteCode, message.publisher

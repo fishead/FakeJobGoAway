@@ -12,7 +12,7 @@
       "default_title": "Fake job go away",
       "default_icon": "icon_default_128x128.png",
       "default_badge": "",
-      "default_popup": ""
+      "default_popup": "popup.html"
    },
    "background": {
       "persistent": false,
@@ -40,7 +40,8 @@
       }
    ],
    "web_accessible_resources": [
-      "lib/jquery/dist/jquery.min.map"
+      "lib/jquery/dist/jquery.min.map",
+      "lib/bootstrap/dist/css/bootstrap.min.css"
    ],
    "update_url": "http://clients2.google.com/service/update2/crx"
 }

@@ -1,5 +1,5 @@
 (function() {
-  var addPublisher, defaultConfig, getPublishers, removePublisher, savePublishers,
+  var addPublisher, defaultConfig, getPublishers, removePublisher, savePublishers, togglePublisher,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   defaultConfig = {
@@ -39,10 +39,22 @@
     });
   };
 
+  togglePublisher = function(siteCode, publisher) {
+    return chrome.storage.sync.get(siteCode, function(config) {
+      var index;
+      index = config[siteCode].indexOf(publisher);
+      if (index < 0) {
+        return addPublisher(siteCode, publisher, function() {});
+      } else {
+        return removePublisher(siteCode, publisher, function() {});
+      }
+    });
+  };
+
   chrome.runtime.onInstalled.addListener(function(details) {
     if (details.reason === 'install') {
       return chrome.storage.sync.set(defaultConfig, function() {
-        return console.log('default comfig imported');
+        return console.log('default config imported');
       });
     }
   });
@@ -57,6 +69,8 @@
       return addPublisher(message.siteCode, message.publisher);
     } else if (message["do"] === 'remove') {
       return removePublisher(message.siteCode, message.publisher);
+    } else if (message["do"] === 'toggle') {
+      return togglePublisher(message.siteCode, message.publisher);
     }
   });
 
