@@ -11,7 +11,8 @@ module.exports = (grunt) ->
                         'src/js/options.js': 'src/coffee/options.coffee',
                         'src/js/58.js': ['src/coffee/58.coffee', 'src/coffee/utils.coffee'],
                         'src/js/ganji.js': ['src/coffee/ganji.coffee', 'src/coffee/utils.coffee'],
-                        'src/js/zhaopin.js': ['src/coffee/zhaopin.coffee', 'src/coffee/utils.coffee']
+                        'src/js/zhaopin.js': ['src/coffee/zhaopin.coffee', 'src/coffee/utils.coffee'],
+                        'src/js/51job.js': ['src/coffee/51job.coffee', 'src/coffee/utils.coffee']
                 }
             },
         }

@@ -1,7 +1,7 @@
 {
    "manifest_version": 2,
    "name": "Fake job go away",
-   "version": "0.1",
+   "version": "0.9.3",
    "description": "搜索工作机会时看到满屏培训机构发布的信息感到沮丧，Check out this extension right now！",
    "icons": {
       "16": "icon_default_128x128.png",
@@ -43,6 +43,13 @@
          "js": [
             "lib/jquery/dist/jquery.min.js",
             "js/zhaopin.js"
+         ]
+      },
+      {
+         "matches": ["*://*.51job.com/*"],
+         "js": [
+            "lib/jquery/dist/jquery.min.js",
+            "js/51job.js"
          ]
       }
    ],
