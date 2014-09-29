@@ -1,11 +1,8 @@
 {
   "name": "FakeJobGoAway",
-  "version": "0.9.1",
-  "description": "filter bad job informations",
+  "version": "1.0.0",
+  "description": "fade bad job informations",
   "main": "js/background.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/zhchuan7/FakeJobGoAway.git"
