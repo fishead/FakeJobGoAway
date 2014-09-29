@@ -1,5 +1,5 @@
 (function() {
-  var addToggle, fadeIn, fadeOut, fadeToggle, linkSelector, onPageLoad, onPublishersChange, opacity, parentSelector, publisherSelector, siteCode,
+  var addToggle, fadeIn, fadeOut, fadeToggle, getPublisherName, linkSelector, onPageLoad, onPublishersChange, opacity, parentSelector, publisherSelector, siteCode,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   siteCode = 'com58';
@@ -9,6 +9,10 @@
   parentSelector = "dd.w271";
 
   linkSelector = "a.fl";
+
+  getPublisherName = function(element) {
+    return element.attr('title');
+  };
 
   chrome.storage.onChanged.addListener(function(changes, areaName) {
     return onPublishersChange(siteCode, changes, publisherSelector);
@@ -33,7 +37,7 @@
     return $(linkSelector, parentSelector).each(function() {
       var html, toggleButton;
       toggleButton = "<span class='toggle-publisher' style='border: 1px solid #000; pointer: hand;' data-publisher='publisher-name' >切换显示</span>";
-      html = toggleButton.replace('publisher-name', $(this).attr('title'));
+      html = toggleButton.replace('publisher-name', getPublisherName($(this)));
       return $(this).after(html);
     });
   };
@@ -86,7 +90,7 @@
     return fadeIn(fadeInPublishers, publisherSelector);
   };
 
-  onPageLoad = function(siteCode, publisherSelector, parentSelector, linkSelector) {
+  onPageLoad = function(siteCode, publisherSelector, parentSelector, linkSelector, getPublisherName) {
     addToggle(parentSelector, linkSelector);
     return chrome.runtime.sendMessage({
       "do": 'get',

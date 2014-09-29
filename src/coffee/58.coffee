@@ -3,6 +3,8 @@ publisherSelector = "dl[logr]:contains(publisher)"
 parentSelector = "dd.w271"
 linkSelector = "a.fl"
 
+getPublisherName = (element) ->
+    element.attr('title')
 
 # toggle fade when publishers changed
 chrome.storage.onChanged.addListener (changes, areaName) ->

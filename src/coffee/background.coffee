@@ -1,4 +1,4 @@
-chrome.storage.sync.clear() # for test
+# chrome.storage.sync.clear() # for test
 
 defaultConfig = {
     'com58': [
@@ -7,7 +7,8 @@ defaultConfig = {
         '重庆市九龙坡区达内职业培训学校',
         '北京中关村软件园人才基地'
     ],
-    'comganji': []
+    'comganji': [],
+    'zhaopin': []
 }
 
 getPublishers = (siteCode, callback) ->

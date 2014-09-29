@@ -12,7 +12,7 @@ addToggle = (parentSelector, linkSelector) ->
                 style='border: 1px solid #000; pointer: hand;'
                 data-publisher='publisher-name'
             >切换显示</span>"
-        html = toggleButton.replace('publisher-name', $(this).attr('title'))
+        html = toggleButton.replace('publisher-name', getPublisherName($(this)))
         $(this).after(html)
 
 fadeIn = (publishers, publisherSelector) ->
@@ -30,7 +30,7 @@ fadeToggle = (oldPublishers, newPublishers, publisherSelector) ->
     fadeOut fadeOutPublishers, publisherSelector
     fadeIn fadeInPublishers, publisherSelector
 
-onPageLoad = (siteCode, publisherSelector, parentSelector, linkSelector) ->
+onPageLoad = (siteCode, publisherSelector, parentSelector, linkSelector, getPublisherName) ->
     # add toggle button
     addToggle(parentSelector, linkSelector)
 

@@ -37,6 +37,13 @@
             "lib/jquery/dist/jquery.min.js",
             "js/ganji.js"
          ]         
+      },
+      {
+         "matches": ["*://*.zhaopin.com/*"],
+         "js": [
+            "lib/jquery/dist/jquery.min.js",
+            "js/zhaopin.js"
+         ]
       }
    ],
    "web_accessible_resources": [

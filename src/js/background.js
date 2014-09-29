@@ -2,11 +2,10 @@
   var addPublisher, defaultConfig, getPublishers, removePublisher, savePublishers, togglePublisher,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
-  chrome.storage.sync.clear();
-
   defaultConfig = {
     'com58': ['重庆达内软件有限公司南坪分公司', '重庆汉昌文化产业集团有限公司', '重庆市九龙坡区达内职业培训学校', '北京中关村软件园人才基地'],
-    'comganji': []
+    'comganji': [],
+    'zhaopin': []
   };
 
   getPublishers = function(siteCode, callback) {
