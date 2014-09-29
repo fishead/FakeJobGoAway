@@ -2,9 +2,11 @@
   var addPublisher, defaultConfig, getPublishers, removePublisher, savePublishers, togglePublisher,
     __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
+  chrome.storage.sync.clear();
+
   defaultConfig = {
     'com58': ['重庆达内软件有限公司南坪分公司', '重庆汉昌文化产业集团有限公司', '重庆市九龙坡区达内职业培训学校', '北京中关村软件园人才基地'],
-    'comganji': ['234234234', '460ljoeuoseu']
+    'comganji': []
   };
 
   getPublishers = function(siteCode, callback) {
@@ -62,6 +64,14 @@
   chrome.runtime.onMessage.addListener(function(message, sender, sendRespons) {
     if (message["do"] === 'get') {
       chrome.storage.sync.get(message.siteCode, function(config) {
+        if (__indexOf.call(config, 'siteCode') < 0) {
+          config[message.siteCode] = [];
+          savePublishers(config, function() {
+            console.log("init empty publishers on: " + config);
+            console.log(config);
+            return true;
+          });
+        }
         return sendRespons(config);
       });
       return true;

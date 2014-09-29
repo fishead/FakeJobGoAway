@@ -1,4 +1,4 @@
-# chrome.storage.sync.clear() # for test
+chrome.storage.sync.clear() # for test
 
 defaultConfig = {
     'com58': [
@@ -7,10 +7,7 @@ defaultConfig = {
         '重庆市九龙坡区达内职业培训学校',
         '北京中关村软件园人才基地'
     ],
-    'comganji': [
-        '234234234',
-        '460ljoeuoseu'
-    ]
+    'comganji': []
 }
 
 getPublishers = (siteCode, callback) ->
@@ -28,7 +25,7 @@ addPublisher = (siteCode, publisher) ->
 removePublisher = (siteCode, publisher) ->
     chrome.storage.sync.get siteCode, (config) ->
         index = config[siteCode].indexOf publisher
-        if index >= 0
+        if index >= 0    
             config[siteCode].splice index, 1
             savePublishers config, ->
                 console.log "remove publisher: #{ publisher }"
@@ -51,6 +48,12 @@ chrome.runtime.onInstalled.addListener (details) ->
 chrome.runtime.onMessage.addListener (message, sender, sendRespons) ->
     if message.do is 'get'
         chrome.storage.sync.get message.siteCode, (config) ->
+            if 'siteCode' not in config
+                config[message.siteCode] = []
+                savePublishers config, ->
+                    console.log "init empty publishers on: #{ config }"
+                    console.log config
+                    return true
             sendRespons config
         return true
 

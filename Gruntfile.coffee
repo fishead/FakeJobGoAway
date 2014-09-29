@@ -3,16 +3,16 @@ module.exports = (grunt) ->
     grunt.initConfig {
         coffee: {
             compile: {
-                files: [
-                    {
-                        expand: true
-                        cwd: 'src/coffee/'
-                        src: '*.coffee'
-                        dest: 'src/js/'
-                        ext: '.js'
-                    }
-                ]
-            }
+                options: {
+                    join: true
+                },
+                files: {
+                        'src/js/background.js': 'src/coffee/background.coffee',
+                        'src/js/options.js': 'src/coffee/options.coffee',
+                        'src/js/58.js': ['src/coffee/58.coffee', 'src/coffee/utils.coffee'],
+                        'src/js/ganji.js': ['src/coffee/ganji.coffee', 'src/coffee/utils.coffee']
+                }
+            },
         }
         
         watch: {
