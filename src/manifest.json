@@ -27,35 +27,34 @@
       {
          "matches": ["*://*.58.com/*"],
          "js": [
-            "lib/jquery/dist/jquery.min.js",
+            "lib/jquery.min.js",
             "js/58.js"
          ]         
       }, 
       {
          "matches": ["*://*.ganji.com/*"],
          "js": [
-            "lib/jquery/dist/jquery.min.js",
+            "lib/jquery.min.js",
             "js/ganji.js"
          ]         
       },
       {
          "matches": ["*://*.zhaopin.com/*"],
          "js": [
-            "lib/jquery/dist/jquery.min.js",
+            "lib/jquery.min.js",
             "js/zhaopin.js"
          ]
       },
       {
          "matches": ["*://*.51job.com/*"],
          "js": [
-            "lib/jquery/dist/jquery.min.js",
+            "lib/jquery.min.js",
             "js/51job.js"
          ]
       }
    ],
    "web_accessible_resources": [
-      "lib/jquery/dist/jquery.min.map",
-      "lib/bootstrap/dist/css/bootstrap.min.css"
+      "lib/jquery.min.map"
    ],
    "update_url": "http://clients2.google.com/service/update2/crx"
 }
