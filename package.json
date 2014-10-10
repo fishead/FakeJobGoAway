@@ -1,6 +1,6 @@
 {
   "name": "FakeJobGoAway",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "fade bad job informations",
   "main": "js/background.js",
   "repository": {

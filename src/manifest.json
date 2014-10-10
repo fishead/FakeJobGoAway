@@ -1,7 +1,7 @@
 {
    "manifest_version": 2,
    "name": "Fake job go away",
-   "version": "1.0.0",
+   "version": "1.0.5",
    "description": "搜索工作机会时看到满屏培训机构发布的信息感到沮丧，马上安装我，让烦人的信息视而不见！",
    "icons": {
       "16": "icon_default_128x128.png",
