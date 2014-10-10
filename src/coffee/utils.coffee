@@ -39,8 +39,8 @@ onPageLoad = (siteCode, publisherSelector, parentSelector, linkSelector, getPubl
         fadeIn response[siteCode], publisherSelector
 
 onPublishersChange = (siteCode, changes, publisherSelector) ->
-    console.log 'publishers changed'
-    console.log  changes
+    # console.log 'publishers changed'
+    # console.log  changes
 
     # publishers in site has changed
     if changes[siteCode]

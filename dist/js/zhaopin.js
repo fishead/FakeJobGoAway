@@ -19,6 +19,7 @@
   });
 
   $(document).ready(function() {
+    console.log('on page load');
     return onPageLoad(siteCode, publisherSelector, parentSelector, linkSelector);
   });
 
@@ -102,8 +103,6 @@
 
   onPublishersChange = function(siteCode, changes, publisherSelector) {
     var newPublishers, oldPublishers;
-    console.log('publishers changed');
-    console.log(changes);
     if (changes[siteCode]) {
       oldPublishers = changes[siteCode]['oldValue'] || [];
       newPublishers = changes[siteCode]['newValue'] || [];

@@ -49,7 +49,9 @@ chrome.runtime.onInstalled.addListener (details) ->
 chrome.runtime.onMessage.addListener (message, sender, sendRespons) ->
     if message.do is 'get'
         chrome.storage.sync.get message.siteCode, (config) ->
-            if 'siteCode' not in config
+            console.log 'get config:'
+            console.log config
+            if not config[message.siteCode]
                 config[message.siteCode] = []
                 savePublishers config, ->
                     console.log "init empty publishers on: #{ config }"

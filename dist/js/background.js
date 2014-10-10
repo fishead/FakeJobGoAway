@@ -63,7 +63,9 @@
   chrome.runtime.onMessage.addListener(function(message, sender, sendRespons) {
     if (message["do"] === 'get') {
       chrome.storage.sync.get(message.siteCode, function(config) {
-        if (__indexOf.call(config, 'siteCode') < 0) {
+        console.log('get config:');
+        console.log(config);
+        if (!config[message.siteCode]) {
           config[message.siteCode] = [];
           savePublishers(config, function() {
             console.log("init empty publishers on: " + config);

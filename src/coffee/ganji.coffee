@@ -8,7 +8,7 @@ getPublisherName = (element) ->
 
 # toggle fade when publishers changed
 chrome.storage.onChanged.addListener (changes, areaName) ->
-    onPublishersChange(siteCode, changes, publisherSelector)
+    onPublishersChange siteCode, changes, publisherSelector
 
 $(document).ready ->
-    onPageLoad(siteCode, publisherSelector, parentSelector, linkSelector, getPublisherName)
+    onPageLoad siteCode, publisherSelector, parentSelector, linkSelector, getPublisherName

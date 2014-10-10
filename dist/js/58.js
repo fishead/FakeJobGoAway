@@ -102,8 +102,6 @@
 
   onPublishersChange = function(siteCode, changes, publisherSelector) {
     var newPublishers, oldPublishers;
-    console.log('publishers changed');
-    console.log(changes);
     if (changes[siteCode]) {
       oldPublishers = changes[siteCode]['oldValue'] || [];
       newPublishers = changes[siteCode]['newValue'] || [];
